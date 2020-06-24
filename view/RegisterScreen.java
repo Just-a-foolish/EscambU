@@ -1,9 +1,13 @@
 package view;
 
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 //TODO implementar botões para realizar registrar e para voltar
@@ -22,7 +26,10 @@ public class RegisterScreen extends JFrame {
 	private JTextField tEmail;
 	private JTextField tAddress;
 	private JTextField tAge;
-	private JTextField tPassword;
+	private JPasswordField tPassword;
+	
+	private JButton bRegister;
+	private JButton bBack;
 
 	RegisterScreen(JFrame frame) {
 		frame.setSize(600, 220);
@@ -40,8 +47,13 @@ public class RegisterScreen extends JFrame {
 		tEmail = new JTextField(30);
 		tAddress = new JTextField();
 		tAge = new JTextField();
-		tPassword = new JTextField();
-
+		tPassword = new JPasswordField();
+		
+		bRegister = new JButton("Cadastrar");
+		bBack = new JButton("Voltar");
+		bRegister.setBounds(70, 170,120, 30);
+		bBack.setBounds(200, 170,120, 30);
+		
 		panel.add(lName);
 		panel.add(tName);
 		panel.add(lEmail);
@@ -53,15 +65,22 @@ public class RegisterScreen extends JFrame {
 		panel.add(lAddress);
 		panel.add(tAddress);
 		panel.setBounds(10, 10, 500, 150);
-
+		
+		frame.add(bRegister);
+		frame.add(bBack);
 		frame.add(panel);
 	}
 	
-	// TODO implementar controladores dos botões
-	/*
 	public void addController(ActionListener controller) {
-		bLogin.addActionListener(controller);
 		bRegister.addActionListener(controller);
-		bWithoutLogin.addActionListener(controller);
-	} */
+		bBack.addActionListener(controller);
+	}
+
+	public JButton getbRegister() {
+		return bRegister;
+	}
+
+	public JButton getbBack() {
+		return bBack;
+	}	
 }

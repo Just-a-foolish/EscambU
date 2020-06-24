@@ -1,33 +1,30 @@
 package view;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.swing.JFrame;
 
+import controller.InitialScreenController;
+
 @SuppressWarnings("serial")
-public class ScreenCoordinator extends JFrame implements ActionListener{
+public class ScreenCoordinator extends JFrame{
 	
-	JFrame frame = new JFrame();
-	InitialScreen initialScreen;
+	private JFrame frame = new JFrame();
+	private InitialScreen initialScreen;
 	
 	ScreenCoordinator(){
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		frame.setLayout(null);
 		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		new InitialScreen(frame);
+		initialScreen = new InitialScreen(frame);
+		InitialScreenController initController = new InitialScreenController();
+		initController.addView(initialScreen);
+		initialScreen.addController(initController);
 	}
 	
 	@SuppressWarnings("unused")
-	private void resetScreen() {
+	public void resetScreen() {
 		frame.getContentPane().removeAll();
 		frame.repaint();
 		frame.setLocationRelativeTo(null);
 	}
-	
-	@Override
-	public void actionPerformed(ActionEvent e) {
-	}
-
 }

@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 public class InitialScreen extends JFrame {
 
 	private JLabel lSystemName;
-	private JButton bLogin;
+	public JButton bLogin;
 	private JButton bRegister;
 	private JButton bWithoutLogin;
 
@@ -39,4 +39,16 @@ public class InitialScreen extends JFrame {
 		bRegister.addActionListener(controller);
 		bWithoutLogin.addActionListener(controller);
 	}
+
+	public JButton getbLogin() {
+		return bLogin;
+	}
+
+	public JButton getbRegister() {
+		return bRegister;
+	}
+
+	public JButton getbWithoutLogin() {
+		return bWithoutLogin;
+	}	
 }
