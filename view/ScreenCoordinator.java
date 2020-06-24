@@ -8,17 +8,16 @@ import controller.InitialScreenController;
 public class ScreenCoordinator extends JFrame{
 	
 	private JFrame frame = new JFrame();
-	private InitialScreen initialScreen;
-	
 	ScreenCoordinator(){
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		frame.setLayout(null);
 		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		initialScreen = new InitialScreen(frame);
+		new ExchangeRegisterScreen(frame);
+		/* initialScreen = new InitialScreen(frame);
 		InitialScreenController initController = new InitialScreenController();
 		initController.addView(initialScreen);
-		initialScreen.addController(initController);
+		initialScreen.addController(initController); */
 	}
 	
 	@SuppressWarnings("unused")
